@@ -16,9 +16,9 @@ logging:
 #-----------------------------------------
 # Distributed tracing
 #-----------------------------------------
-spring  
-  sleuth
-    Sampler
+spring:  
+  sleuth:
+    Sampler:
        probability: 1
     enabled: true
 
