@@ -97,7 +97,7 @@ app:
 # ACTUATOR PROPERTIES
 # ----------------------------------------
 info:
-  component: ACCOUNT MANAGEMENT SERVICE
+  component: ACCOUNT MANAGEMENT SERVICE DEV
   
 management:
   endpoints:
