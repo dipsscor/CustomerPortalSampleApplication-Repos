@@ -16,7 +16,7 @@ logging:
 #-----------------------------------------
 # Distributed tracing
 #-----------------------------------------
-Spring  
+spring  
   sleuth
     Sampler
        probability: 1
