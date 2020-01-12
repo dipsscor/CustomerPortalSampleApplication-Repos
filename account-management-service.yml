@@ -56,7 +56,7 @@ ribbon:
 # ----------------------------------------
 # DATASOURCE PROPERTIES
 # ----------------------------------------
-spring:
+
   jpa:
     hibernate:
       ddl-auto: create
