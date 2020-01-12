@@ -1,0 +1,114 @@
+
+server:
+  port: 12001
+
+
+
+logging:
+  file: logs/application.log
+
+
+
+
+
+
+
+#-----------------------------------------
+# Distributed tracing
+#-----------------------------------------
+spring:  
+  sleuth:
+    Sampler:
+       probability: 1
+    enabled: true
+
+
+
+#-----------------------------------------
+# CUSTOM PROPERTIES
+#-----------------------------------------   
+config:
+  props:
+    path: /config
+  
+  
+  
+# CLOUD CONFIG
+#-------------------------------  
+eureka:  
+  client:
+    serviceUrl:
+      defaultZone: http://${registry.host:localhost}:${registry.port:9001}/eureka/
+#      defaultZone: ${DISCOVERY_URL:https://customer-portal-discovery-service.cfapps.io}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+          
+ribbon:
+  eureka:
+    enabled: true
+  
+  
+  
+  
+
+
+# ----------------------------------------
+# DATASOURCE PROPERTIES
+# ----------------------------------------
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+      
+      
+      
+      
+      
+      
+      
+#-----------------------------------------
+# CUSTOM PROPERTIES - H2 Database
+#----------------------------------------- 
+app:
+  prod:
+    datasource:
+      jdbcurl: jdbc:h2:file:~/account_management
+      username: root
+      password: admin
+      driver-class-name: org.h2.Driver
+      maximum-pool-size: 30
+      
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+
+
+
+
+# ----------------------------------------
+# ACTUATOR PROPERTIES
+# ----------------------------------------
+info:
+  component: ACCOUNT MANAGEMENT SERVICE QA
+  
+management:
+  endpoints:
+    enabled-by-default: true
+  server:
+    servlet:
+      context-path: /
+  endpoint:
+    threaddump:
+      enabled: true
+    metrics:
+      enabled: true
+    info:
+      enabled: true
+    health:
+      enabled: true
+    beans:
+      enabled: true
+
